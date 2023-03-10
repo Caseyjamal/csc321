@@ -1,0 +1,721 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\casey> cd belhavencs/hw2
+PS C:\Users\casey\belhavencs\hw2> ipython
+Python 3.9.13 (main, Aug 25 2022, 23:51:50) [MSC v.1916 64 bit (AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.31.1 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: import ipaddress
+
+In [2]: import ipaddress
+
+In [3]: # Thu, 09 Mar 2023 19:25:51
+
+In [4]: ipaddress.ip_address('192.0.2.1')
+Out[4]: IPv4Address('192.0.2.1')
+
+In [5]: #[Out]# IPv4Address('192.0.2.1')
+
+In [6]: # Thu, 09 Mar 2023 19:27:18
+
+In [7]: ipaddres.ip_address('201:DB8::1')
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-7-dac6bf8c4fc7> in <module>
+----> 1 ipaddres.ip_address('201:DB8::1')
+
+NameError: name 'ipaddres' is not defined
+
+In [8]: # Thu, 09 Mar 2023 19:29:36
+
+In [9]: ipaddress.ip_address('2001:DB8::1')
+Out[9]: IPv6Address('2001:db8::1')
+
+In [10]: #[Out]# IPv6Address('2001:db8::1')
+
+In [11]: # Thu, 09 Mar 2023 19:51:35
+
+In [12]: ipaddress.ip_address(3221225985)
+Out[12]: IPv4Address('192.0.2.1')
+
+In [13]: #[Out]# IPv4Address('192.0.2.1')
+
+In [14]: # Thu, 09 Mar 2023 19:51:53
+
+In [15]: ipaddress.ip_address(42540766411282592856903984951653826561)
+Out[15]: IPv6Address('2001:db8::1')
+
+In [16]: #[Out]# IPv6Address('2001:db8::1')
+
+In [17]: # Thu, 09 Mar 2023 19:52:32
+
+In [18]: ipaddress.ip_address(1)
+Out[18]: IPv4Address('0.0.0.1')
+
+In [19]: #[Out]# IPv4Address('0.0.0.1')
+
+In [20]: # Thu, 09 Mar 2023 19:52:56
+
+In [21]: ipaddress.IPv4Address(1)
+Out[21]: IPv4Address('0.0.0.1')
+
+In [22]: #[Out]# IPv4Address('0.0.0.1')
+
+In [23]: # Thu, 09 Mar 2023 19:53:16
+
+In [24]: ipaddress.IPv6Address(1)
+Out[24]: IPv6Address('::1')
+
+In [25]: #[Out]# IPv6Address('::1')
+
+In [26]: # Thu, 09 Mar 2023 19:54:41
+
+In [27]: ipaddress.ip_network('192.0.2.0/24')
+Out[27]: IPv4Network('192.0.2.0/24')
+
+In [28]: #[Out]# IPv4Network('192.0.2.0/24')
+
+In [29]: # Thu, 09 Mar 2023 19:55:14
+
+In [30]: ipaddress.ip_network('2001:db8::0/96')
+Out[30]: IPv6Network('2001:db8::/96')
+
+In [31]: #[Out]# IPv6Network('2001:db8::/96')
+
+In [32]: # Thu, 09 Mar 2023 19:55:34
+
+In [33]: ipaddress.ip_network('192.0.2.1/24')
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-33-bfb2520f1dec> in <module>
+----> 1 ipaddress.ip_network('192.0.2.1/24')
+
+~\anaconda3\lib\ipaddress.py in ip_network(address, strict)
+     71     """
+     72     try:
+---> 73         return IPv4Network(address, strict)
+     74     except (AddressValueError, NetmaskValueError):
+     75         pass
+
+~\anaconda3\lib\ipaddress.py in __init__(self, address, strict)
+   1504         if packed & int(self.netmask) != packed:
+   1505             if strict:
+-> 1506                 raise ValueError('%s has host bits set' % self)
+   1507             else:
+   1508                 self.network_address = IPv4Address(packed &
+
+ValueError: 192.0.2.1/24 has host bits set
+
+In [34]: # Thu, 09 Mar 2023 19:56:08
+
+In [35]: ipaddress.ip_network('192.0.2.1/24', strict=False)
+Out[35]: IPv4Network('192.0.2.0/24')
+
+In [36]: #[Out]# IPv4Network('192.0.2.0/24')
+
+In [37]: # Thu, 09 Mar 2023 19:56:21
+
+In [38]: ipaddress.ip_network(3221225984)
+Out[38]: IPv4Network('192.0.2.0/32')
+
+In [39]: #[Out]# IPv4Network('192.0.2.0/32')
+
+In [40]: # Thu, 09 Mar 2023 19:57:04
+
+In [41]: ipaddress.ip_network(42540766411282592856903984951653826560)
+Out[41]: IPv6Network('2001:db8::/128')
+
+In [42]: #[Out]# IPv6Network('2001:db8::/128')
+
+In [43]: # Thu, 09 Mar 2023 19:57:24
+
+In [44]: ipaddress.ip_interface('192.0.2.1/24')
+Out[44]: IPv4Interface('192.0.2.1/24')
+
+In [45]: #[Out]# IPv4Interface('192.0.2.1/24')
+
+In [46]: # Thu, 09 Mar 2023 19:57:37
+
+In [47]: ipaddress.ip_interface('2001:db8::1/96')
+Out[47]: IPv6Interface('2001:db8::1/96')
+
+In [48]: #[Out]# IPv6Interface('2001:db8::1/96')
+
+In [49]: # Thu, 09 Mar 2023 19:58:09
+
+In [50]: addr4 = ipaddress.ip_address('192.0.2.1')
+
+In [51]: # Thu, 09 Mar 2023 19:58:45
+
+In [52]: addr6 = ipaddress.ip_address('2001:db8::1')
+
+In [53]: # Thu, 09 Mar 2023 19:58:56
+
+In [54]: addr6.version
+Out[54]: 6
+
+In [55]: #[Out]# 6
+
+In [56]: # Thu, 09 Mar 2023 19:59:07
+
+In [57]: addr4.version
+Out[57]: 4
+
+In [58]: #[Out]# 4
+
+In [59]: # Thu, 09 Mar 2023 19:59:21
+
+In [60]: host4 = ipaddress.ip_interface('192.0.2.1/24')
+
+In [61]: # Thu, 09 Mar 2023 19:59:46
+
+In [62]: host4.network
+Out[62]: IPv4Network('192.0.2.0/24')
+
+In [63]: #[Out]# IPv4Network('192.0.2.0/24')
+
+In [64]: # Thu, 09 Mar 2023 20:00:04
+
+In [65]: host6 = ipaddress.ip_interface('2001:db8::1/96')
+
+In [66]: # Thu, 09 Mar 2023 20:00:15
+
+In [67]: host6.network
+Out[67]: IPv6Network('2001:db8::/96')
+
+In [68]: #[Out]# IPv6Network('2001:db8::/96')
+
+In [69]: # Thu, 09 Mar 2023 20:00:56
+
+In [70]: net4 = ipaddress.ip_network('192.0.2.0/24')
+
+In [71]: # Thu, 09 Mar 2023 20:01:08
+
+In [72]: net4.num_addresses
+Out[72]: 256
+
+In [73]: #[Out]# 256
+
+In [74]: # Thu, 09 Mar 2023 20:01:18
+
+In [75]: net6 = ipaddress.ip_network('2001:db8::0/96')
+
+In [76]: # Thu, 09 Mar 2023 20:01:33
+
+In [77]: net6.num_addresses
+Out[77]: 4294967296
+
+In [78]: #[Out]# 4294967296
+
+In [79]: # Thu, 09 Mar 2023 20:01:50
+
+In [80]: net4 = ipaddress.ip_network('192.0.2.0/24')
+
+In [81]: # Thu, 09 Mar 2023 20:02:54
+
+In [82]: for x in net4.hosts():
+    ...:             print(x)
+    ...:
+192.0.2.1
+192.0.2.2
+192.0.2.3
+192.0.2.4
+192.0.2.5
+192.0.2.6
+192.0.2.7
+192.0.2.8
+192.0.2.9
+192.0.2.10
+192.0.2.11
+192.0.2.12
+192.0.2.13
+192.0.2.14
+192.0.2.15
+192.0.2.16
+192.0.2.17
+192.0.2.18
+192.0.2.19
+192.0.2.20
+192.0.2.21
+192.0.2.22
+192.0.2.23
+192.0.2.24
+192.0.2.25
+192.0.2.26
+192.0.2.27
+192.0.2.28
+192.0.2.29
+192.0.2.30
+192.0.2.31
+192.0.2.32
+192.0.2.33
+192.0.2.34
+192.0.2.35
+192.0.2.36
+192.0.2.37
+192.0.2.38
+192.0.2.39
+192.0.2.40
+192.0.2.41
+192.0.2.42
+192.0.2.43
+192.0.2.44
+192.0.2.45
+192.0.2.46
+192.0.2.47
+192.0.2.48
+192.0.2.49
+192.0.2.50
+192.0.2.51
+192.0.2.52
+192.0.2.53
+192.0.2.54
+192.0.2.55
+192.0.2.56
+192.0.2.57
+192.0.2.58
+192.0.2.59
+192.0.2.60
+192.0.2.61
+192.0.2.62
+192.0.2.63
+192.0.2.64
+192.0.2.65
+192.0.2.66
+192.0.2.67
+192.0.2.68
+192.0.2.69
+192.0.2.70
+192.0.2.71
+192.0.2.72
+192.0.2.73
+192.0.2.74
+192.0.2.75
+192.0.2.76
+192.0.2.77
+192.0.2.78
+192.0.2.79
+192.0.2.80
+192.0.2.81
+192.0.2.82
+192.0.2.83
+192.0.2.84
+192.0.2.85
+192.0.2.86
+192.0.2.87
+192.0.2.88
+192.0.2.89
+192.0.2.90
+192.0.2.91
+192.0.2.92
+192.0.2.93
+192.0.2.94
+192.0.2.95
+192.0.2.96
+192.0.2.97
+192.0.2.98
+192.0.2.99
+192.0.2.100
+192.0.2.101
+192.0.2.102
+192.0.2.103
+192.0.2.104
+192.0.2.105
+192.0.2.106
+192.0.2.107
+192.0.2.108
+192.0.2.109
+192.0.2.110
+192.0.2.111
+192.0.2.112
+192.0.2.113
+192.0.2.114
+192.0.2.115
+192.0.2.116
+192.0.2.117
+192.0.2.118
+192.0.2.119
+192.0.2.120
+192.0.2.121
+192.0.2.122
+192.0.2.123
+192.0.2.124
+192.0.2.125
+192.0.2.126
+192.0.2.127
+192.0.2.128
+192.0.2.129
+192.0.2.130
+192.0.2.131
+192.0.2.132
+192.0.2.133
+192.0.2.134
+192.0.2.135
+192.0.2.136
+192.0.2.137
+192.0.2.138
+192.0.2.139
+192.0.2.140
+192.0.2.141
+192.0.2.142
+192.0.2.143
+192.0.2.144
+192.0.2.145
+192.0.2.146
+192.0.2.147
+192.0.2.148
+192.0.2.149
+192.0.2.150
+192.0.2.151
+192.0.2.152
+192.0.2.153
+192.0.2.154
+192.0.2.155
+192.0.2.156
+192.0.2.157
+192.0.2.158
+192.0.2.159
+192.0.2.160
+192.0.2.161
+192.0.2.162
+192.0.2.163
+192.0.2.164
+192.0.2.165
+192.0.2.166
+192.0.2.167
+192.0.2.168
+192.0.2.169
+192.0.2.170
+192.0.2.171
+192.0.2.172
+192.0.2.173
+192.0.2.174
+192.0.2.175
+192.0.2.176
+192.0.2.177
+192.0.2.178
+192.0.2.179
+192.0.2.180
+192.0.2.181
+192.0.2.182
+192.0.2.183
+192.0.2.184
+192.0.2.185
+192.0.2.186
+192.0.2.187
+192.0.2.188
+192.0.2.189
+192.0.2.190
+192.0.2.191
+192.0.2.192
+192.0.2.193
+192.0.2.194
+192.0.2.195
+192.0.2.196
+192.0.2.197
+192.0.2.198
+192.0.2.199
+192.0.2.200
+192.0.2.201
+192.0.2.202
+192.0.2.203
+192.0.2.204
+192.0.2.205
+192.0.2.206
+192.0.2.207
+192.0.2.208
+192.0.2.209
+192.0.2.210
+192.0.2.211
+192.0.2.212
+192.0.2.213
+192.0.2.214
+192.0.2.215
+192.0.2.216
+192.0.2.217
+192.0.2.218
+192.0.2.219
+192.0.2.220
+192.0.2.221
+192.0.2.222
+192.0.2.223
+192.0.2.224
+192.0.2.225
+192.0.2.226
+192.0.2.227
+192.0.2.228
+192.0.2.229
+192.0.2.230
+192.0.2.231
+192.0.2.232
+192.0.2.233
+192.0.2.234
+192.0.2.235
+192.0.2.236
+192.0.2.237
+192.0.2.238
+192.0.2.239
+192.0.2.240
+192.0.2.241
+192.0.2.242
+192.0.2.243
+192.0.2.244
+192.0.2.245
+192.0.2.246
+192.0.2.247
+192.0.2.248
+192.0.2.249
+192.0.2.250
+192.0.2.251
+192.0.2.252
+192.0.2.253
+192.0.2.254
+
+In [83]: # Thu, 09 Mar 2023 20:03:22
+
+In [84]: net4 = ipaddress.ip_network('192.0.2.0/24')
+
+In [85]: # Thu, 09 Mar 2023 20:03:36
+
+In [86]: net4.netmask
+Out[86]: IPv4Address('255.255.255.0')
+
+In [87]: #[Out]# IPv4Address('255.255.255.0')
+
+In [88]: # Thu, 09 Mar 2023 20:03:51
+
+In [89]: net4.hostmask
+Out[89]: IPv4Address('0.0.0.255')
+
+In [90]: #[Out]# IPv4Address('0.0.0.255')
+
+In [91]: # Thu, 09 Mar 2023 20:04:10
+
+In [92]: net6 = ipaddress.ip_network('2001:db8::0/96')
+
+In [93]: # Thu, 09 Mar 2023 20:05:02
+
+In [94]: net6.netmask
+Out[94]: IPv6Address('ffff:ffff:ffff:ffff:ffff:ffff::')
+
+In [95]: #[Out]# IPv6Address('ffff:ffff:ffff:ffff:ffff:ffff::')
+
+In [96]: # Thu, 09 Mar 2023 20:05:18
+
+In [97]: net6.hostmask
+Out[97]: IPv6Address('::ffff:ffff')
+
+In [98]: #[Out]# IPv6Address('::ffff:ffff')
+
+In [99]: # Thu, 09 Mar 2023 20:06:13
+
+In [100]: addr6.exploded
+Out[100]: '2001:0db8:0000:0000:0000:0000:0000:0001'
+
+In [101]: #[Out]# '2001:0db8:0000:0000:0000:0000:0000:0001'
+
+In [102]: # Thu, 09 Mar 2023 20:06:23
+
+In [103]: addr6.compressed
+Out[103]: '2001:db8::1'
+
+In [104]: #[Out]# '2001:db8::1'
+
+In [105]: # Thu, 09 Mar 2023 20:06:31
+
+In [106]: net6.exploded
+Out[106]: '2001:0db8:0000:0000:0000:0000:0000:0000/96'
+
+In [107]: #[Out]# '2001:0db8:0000:0000:0000:0000:0000:0000/96'
+
+In [108]: # Thu, 09 Mar 2023 20:06:37
+
+In [109]: net6.compressed
+Out[109]: '2001:db8::/96'
+
+In [110]: #[Out]# '2001:db8::/96'
+
+In [111]: # Thu, 09 Mar 2023 20:06:55
+
+In [112]: net4[1]
+Out[112]: IPv4Address('192.0.2.1')
+
+In [113]: #[Out]# IPv4Address('192.0.2.1')
+
+In [114]: # Thu, 09 Mar 2023 20:07:01
+
+In [115]: net4[-1]
+Out[115]: IPv4Address('192.0.2.255')
+
+In [116]: #[Out]# IPv4Address('192.0.2.255')
+
+In [117]: # Thu, 09 Mar 2023 20:07:08
+
+In [118]: net6[1]
+Out[118]: IPv6Address('2001:db8::1')
+
+In [119]: #[Out]# IPv6Address('2001:db8::1')
+
+In [120]: # Thu, 09 Mar 2023 20:07:13
+
+In [121]: net6[-1]
+Out[121]: IPv6Address('2001:db8::ffff:ffff')
+
+In [122]: #[Out]# IPv6Address('2001:db8::ffff:ffff')
+
+In [123]: # Thu, 09 Mar 2023 20:07:41
+
+In [124]: addr4 = ipaddress.ip_address('192.0.2.1')
+
+In [125]: # Thu, 09 Mar 2023 20:08:19
+
+In [126]: addr4 in ipaddress.ip_network('192.0.2.0/24')
+Out[126]: True
+
+In [127]: #[Out]# True
+
+In [128]: # Thu, 09 Mar 2023 20:08:53
+
+In [129]: addr4 in ipaddress.ip_network('192.0.3.0/24')
+Out[129]: False
+
+In [130]: #[Out]# False
+
+In [131]: # Thu, 09 Mar 2023 20:09:11
+
+In [132]: ipaddress.ip_address('192.0.2.1') < ipaddress.ip_address('192.0.2.2')
+Out[132]: True
+
+In [133]: #[Out]# True
+
+In [134]: # Thu, 09 Mar 2023 20:09:22
+
+In [135]: addr4 = ipaddress.ip_address('192.0.2.1')
+
+In [136]: # Thu, 09 Mar 2023 20:09:48
+
+In [137]: str(addr4)
+Out[137]: '192.0.2.1'
+
+In [138]: #[Out]# '192.0.2.1'
+
+In [139]: # Thu, 09 Mar 2023 20:10:01
+
+In [140]: int(addr4)
+Out[140]: 3221225985
+
+In [141]: #[Out]# 3221225985
+
+In [142]: # Thu, 09 Mar 2023 20:10:20
+
+In [143]: ipaddress.ip_address("192.168.0.256")
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-143-1510c03093b0> in <module>
+----> 1 ipaddress.ip_address("192.168.0.256")
+
+~\anaconda3\lib\ipaddress.py in ip_address(address)
+     51         pass
+     52
+---> 53     raise ValueError(f'{address!r} does not appear to be an IPv4 or IPv6 address')
+     54
+     55
+
+ValueError: '192.168.0.256' does not appear to be an IPv4 or IPv6 address
+
+In [144]: # Thu, 09 Mar 2023 20:10:40
+
+In [145]: ipaddress.ip_network("192.168.0.1/64")
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-145-d9e2b115b945> in <module>
+----> 1 ipaddress.ip_network("192.168.0.1/64")
+
+~\anaconda3\lib\ipaddress.py in ip_network(address, strict)
+     80         pass
+     81
+---> 82     raise ValueError(f'{address!r} does not appear to be an IPv4 or IPv6 network')
+     83
+     84
+
+ValueError: '192.168.0.1/64' does not appear to be an IPv4 or IPv6 network
+
+In [146]: # Thu, 09 Mar 2023 20:10:53
+
+In [147]: ipaddress.IPv4Network("192.168.0.1/64")
+---------------------------------------------------------------------------
+NetmaskValueError                         Traceback (most recent call last)
+<ipython-input-147-e06ba9818885> in <module>
+----> 1 ipaddress.IPv4Network("192.168.0.1/64")
+
+~\anaconda3\lib\ipaddress.py in __init__(self, address, strict)
+   1500
+   1501         self.network_address = IPv4Address(addr)
+-> 1502         self.netmask, self._prefixlen = self._make_netmask(mask)
+   1503         packed = int(self.network_address)
+   1504         if packed & int(self.netmask) != packed:
+
+~\anaconda3\lib\ipaddress.py in _make_netmask(cls, arg)
+   1165                     # Check for a netmask or hostmask in dotted-quad form.
+   1166                     # This may raise NetmaskValueError.
+-> 1167                     prefixlen = cls._prefix_from_ip_string(arg)
+   1168             netmask = IPv4Address(cls._ip_int_from_prefix(prefixlen))
+   1169             cls._netmask_cache[arg] = netmask, prefixlen
+
+~\anaconda3\lib\ipaddress.py in _prefix_from_ip_string(cls, ip_str)
+    513             ip_int = cls._ip_int_from_string(ip_str)
+    514         except AddressValueError:
+--> 515             cls._report_invalid_netmask(ip_str)
+    516
+    517         # Try matching a netmask (this would be /1*0*/ as a bitwise regexp).
+
+~\anaconda3\lib\ipaddress.py in _report_invalid_netmask(cls, netmask_str)
+    469     def _report_invalid_netmask(cls, netmask_str):
+    470         msg = '%r is not a valid netmask' % netmask_str
+--> 471         raise NetmaskValueError(msg) from None
+    472
+    473     @classmethod
+
+NetmaskValueError: '64' is not a valid netmask
+
+In [148]: # Thu, 09 Mar 2023 20:11:29
+
+---------------------------------------------------------------------------
+<ipython-input-149-df7946b1a20e> in <module>
+
+
+
+In [151]: git add belhavencs/hw2
+  File "<ipython-input-151-163d93382776>", line 1
+    git add belhavencs/hw2
+        ^
+SyntaxError: invalid syntax
+
+
+In [152]: # Thu, 09 Mar 2023 20:11:52
+
+In [153]: git add
+  File "<ipython-input-153-3d50770d72e9>", line 1
+    git add
+        ^
+SyntaxError: invalid syntax
+
+
+In [154]: # Thu, 09 Mar 2023 20:12:23
+
+In [155]: exit()
+PS C:\Users\casey\belhavencs\hw2> git add belhavencs/hw2
+fatal: not a git repository (or any of the parent directories): .git
+PS C:\Users\casey\belhavencs\hw2> git add ipaddress.log
+fatal: not a git repository (or any of the parent directories): .git
+PS C:\Users\casey\belhavencs\hw2> git add belhavencs/csc321/hw2
+fatal: not a git repository (or any of the parent directories): .git
+PS C:\Users\casey\belhavencs\hw2> git push
+fatal: not a git repository (or any of the parent directories): .git
+PS C:\Users\casey\belhavencs\hw2> git push belhavencs/hw2
+fatal: not a git repository (or any of the parent directories): .git
+PS C:\Users\casey\belhavencs\hw2>
